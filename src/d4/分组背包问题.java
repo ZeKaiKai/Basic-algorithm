@@ -25,6 +25,8 @@ public class 分组背包问题 {
             }
         }
 
+
+
         for (int i = 1; i <= n; i++)
             for (int j = m; j > 0; j--)
                 for (int k = 1; k <= s[i]; k++)
