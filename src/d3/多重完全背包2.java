@@ -36,6 +36,8 @@ public class 多重完全背包2 {
             }
         }
 
+        n = cnt;
+
         for (int i = 1; i <= n; i++)
             for (int j = m; j >= v[i]; j--)
                 f[j] = Math.max(f[j], f[j-v[i]]+w[i]);
