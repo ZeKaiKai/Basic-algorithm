@@ -23,27 +23,30 @@ public class 最长上升子序列_输出序列 {
 
         for (int i = 1; i <= n; i++) {
             f[i] = 1;
-            g[i] = 1;
-            for (int j = 1; j < i; j++)
-                if (a[i] > a[j])
+            for (int j = 1; j <= i; j++) {
+                if (a[j] < a[i])
                     if (f[i] < f[j] + 1) {
                         f[i] = f[j] + 1;
+                        // 记录从哪个状态转移过来的
                         g[i] = j;
                     }
+            }
         }
 
-        int k = 0;
-        for (int i = 1; i <= n; i++)
-            if (f[i] > f[k])
-                k = i;
+        int max = 0;
+        for (int i = 1; i <= n; i++) {
+            if (f[max] < f[i])
+                max = i;
+        }
 
-        System.out.println(f[k]);
+        System.out.println(f[max]);
 
-        // 反向输出最长序列
-        int len = f[k];
+        // 实现逆向输入，正向可以用stringbuilder+reverse
+        int len = f[max];
         for (int i = 0; i < len; i++) {
-            System.out.print(a[k] + " ");
-            k = g[k];
+            System.out.print(a[max] + " ");
+            // 回溯到记录的状态
+            max = g[max];
         }
     }
 
