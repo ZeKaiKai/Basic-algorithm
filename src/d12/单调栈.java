@@ -6,6 +6,7 @@ import java.util.Stack;
 /**
  * Leetcode 503. 下一个更大元素 II
  * 单调栈例题
+ * 参考文章：https://zhuanlan.zhihu.com/p/529488283
  */
 public class 单调栈 {
     public static void main(String[] args) {
